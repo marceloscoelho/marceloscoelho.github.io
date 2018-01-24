@@ -207,8 +207,8 @@ var percentage = 0;
 var userSpeed = null;
 
 function render() {
-  navigator.geolocation.getCurrentPosition(success);
-  // navigator.geolocation.watchPosition(success);
+  // navigator.geolocation.getCurrentPosition(success);
+  navigator.geolocation.watchPosition(success);
 
   if (userSpeed == null) {
     userSpeed = 0.00005;
