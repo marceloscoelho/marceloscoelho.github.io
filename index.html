@@ -198,17 +198,16 @@
         var userSpeed = null;
         function getLocation() {
           setInterval(function(){
-              navigator.geolocation.getCurrentPosition(success);
+              // navigator.geolocation.getCurrentPosition(success);
+              navigator.geolocation.watchPosition(showPosition);
               // navigator.geolocation.watchPosition(success, error, {maximumAge:0,enableHighAccuracy:true,timeout=1000});
           }, 500);
         }
         
 
         function render() {
-          //navigator.geolocation.getCurrentPosition(success);
-          //navigator.geolocation.watchPosition(success);
           if (userSpeed == null) {
-            userSpeed = 0.000005;
+            userSpeed = 0.00005;
           }
           // if not it's a correct decimal number
           console.log("Speed used :" + userSpeed);
@@ -222,7 +221,7 @@
           requestAnimationFrame(render);
         }
         requestAnimationFrame(render);
-        function success(position){
+        function showPosition(position){
           var speed = position.coords.speed;
           console.log("Speed from API: " + speed);
           // if too big
