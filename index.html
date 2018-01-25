@@ -63,18 +63,18 @@
     <div class="top-header">
       <button onclick="getLocation()">Try It</button>
       <script>
-var x = document.getElementById("demo");
+        var x = document.getElementById("demo");
 
-function getLocation() {
-  setInterval(function(){
-      navigator.geolocation.watchPosition(showPosition);
-  }, 500);
-}
+        function getLocation() {
+          setInterval(function(){
+              navigator.geolocation.getCurrentPosition(showPosition);
+          }, 500);
+        }
 
-function showPosition(position) {
-    console.log("Speed: " + position.coords.speed);
-}
-</script>
+        function showPosition(position) {
+            console.log("Speed: " + position.coords.speed);
+        }
+      </script>
 
 <!--       <img src="img/back.png" alt="Back" height="26" width="25"> -->
 <!--       <img src="img/check.png" alt="Check" height="15" width="23">
