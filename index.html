@@ -207,16 +207,6 @@ var material = new THREE.PointsMaterial({
 
 var tube = new THREE.Points(geometry, material);
 
-// //Geolocalization function
-
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else { 
-//         x.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-// }
-
 //Add tube into the scene
 scene.add(tube);
 
@@ -225,16 +215,16 @@ var userSpeed = null;
 
 function render() {
   // navigator.geolocation.getCurrentPosition(success);
-  navigator.geolocation.watchPosition(success);
+  //navigator.geolocation.watchPosition(success);
 
-  if (userSpeed == null) {
+  /*if (userSpeed == null) {
     userSpeed = 0.00005;
   }
   // if not it's a correct decimal number
 
-  console.log("Speed used :" + userSpeed);
+  console.log("Speed used :" + userSpeed);*/
 
-  percentage += userSpeed; //Speed of the tunnel
+  percentage += 0.0005; //Speed of the tunnel
   var p1 = path.getPointAt(percentage % 1);
   var p2 = path.getPointAt((percentage + 0.01) % 1);
   camera.position.set(p1.x, p1.y, p1.z);
