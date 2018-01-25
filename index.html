@@ -66,11 +66,11 @@
 var x = document.getElementById("demo");
 
 function getLocation() {
-    if (navigator.geolocation) {
+  setInterval(function(){
+      if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
     }
+  }, 500);
 }
 
 function showPosition(position) {
