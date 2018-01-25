@@ -74,10 +74,8 @@
   <body>
     <div class="top-header">
       <button class="button" onclick="getLocation()">Get Location</button>
-      
-
-<!--       <img src="img/back.png" alt="Back" height="26" width="25"> -->
-<!--       <img src="img/check.png" alt="Check" height="15" width="23">
+<!--       <img src="img/back.png" alt="Back" height="26" width="25">
+      <img src="img/check.png" alt="Check" height="15" width="23">
       <img src="img/share.png" alt="Share" height="24" width="20">
       <img src="img/config.png" alt="Config" height="25" width="25"> -->
     </div>
@@ -200,7 +198,8 @@
         var userSpeed = null;
         function getLocation() {
           setInterval(function(){
-              navigator.geolocation.watchPosition(success, error, {maximumAge:0,enableHighAccuracy:true,timeout=1000});
+              navigator.geolocation.getCurrentPosition(success);
+              // navigator.geolocation.watchPosition(success, error, {maximumAge:0,enableHighAccuracy:true,timeout=1000});
           }, 500);
         }
         
