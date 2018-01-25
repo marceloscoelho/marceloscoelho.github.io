@@ -61,7 +61,24 @@
 	</head>
 	<body>
     <div class="top-header">
-      <img src="img/back.png" alt="Back" height="26" width="25">
+      <button onclick="getLocation()">Try It</button>
+      <script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    console.log("Speed: " + position.coords.speed);
+}
+</script>
+
+<!--       <img src="img/back.png" alt="Back" height="26" width="25"> -->
 <!--       <img src="img/check.png" alt="Check" height="15" width="23">
       <img src="img/share.png" alt="Share" height="24" width="20">
       <img src="img/config.png" alt="Config" height="25" width="25"> -->
@@ -190,15 +207,15 @@ var material = new THREE.PointsMaterial({
 
 var tube = new THREE.Points(geometry, material);
 
-//Geolocalization function
+// //Geolocalization function
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else { 
+//         x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
 
 //Add tube into the scene
 scene.add(tube);
