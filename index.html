@@ -196,7 +196,7 @@
           //navigator.geolocation.getCurrentPosition(success);
           //navigator.geolocation.watchPosition(success);
           if (userSpeed == null) {
-            userSpeed = 0.00005;
+            userSpeed = 0.0005;
           }
           // if not it's a correct decimal number
           console.log("Speed used :" + userSpeed);
@@ -214,7 +214,7 @@
           var speed = position.coords.speed;
           console.log("Speed from API: " + speed);
           // if too big
-          speed = speed / 1000000;
+          // speed = speed / 1000000;
           userSpeed = speed;
         }
             </script>
