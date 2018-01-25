@@ -67,11 +67,13 @@ var x = document.getElementById("demo");
 
 function getLocation() {
   setInterval(function(){
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    }
+      navigator.geolocation.getCurrentPosition(showPosition);
   }, 500);
 }
+
+setInterval(function(){
+      navigator.geolocation.getCurrentPosition(showPosition);
+  }, 500);
 
 function showPosition(position) {
     console.log("Speed: " + position.coords.speed);
