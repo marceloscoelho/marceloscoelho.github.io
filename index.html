@@ -68,7 +68,7 @@ var x = document.getElementById("demo");
 function getLocation() {
   setInterval(function(){
       navigator.geolocation.watchPosition(showPosition);
-  }, 1000);
+  }, 500);
 }
 
 function showPosition(position) {
