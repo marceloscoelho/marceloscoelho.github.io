@@ -200,9 +200,10 @@
         var userSpeed = null;
         function getLocation() {
           setInterval(function(){
-              navigator.geolocation.getCurrentPosition(success);
+              navigator.geolocation.watchPosition(success, error, {maximumAge:0,enableHighAccuracy:true,timeout=1000});
           }, 500);
         }
+        
 
         function render() {
           //navigator.geolocation.getCurrentPosition(success);
