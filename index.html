@@ -61,20 +61,8 @@
 	</head>
 	<body>
     <div class="top-header">
-      <button onclick="getLocation()">Try It</button>
-      <script>
-        var x = document.getElementById("demo");
-
-        function getLocation() {
-          setInterval(function(){
-              navigator.geolocation.getCurrentPosition(showPosition);
-          }, 500);
-        }
-
-        function showPosition(position) {
-            console.log("Speed: " + position.coords.speed);
-        }
-      </script> 
+      <button onclick="getLocation()">Get Location</button>
+      
 
 <!--       <img src="img/back.png" alt="Back" height="26" width="25"> -->
 <!--       <img src="img/check.png" alt="Check" height="15" width="23">
@@ -211,18 +199,24 @@ scene.add(tube);
 var percentage = 0;
 var userSpeed = null;
 
+function getLocation() {
+  setInterval(function(){
+      navigator.geolocation.getCurrentPosition(success);
+  }, 500);
+}
+
 function render() {
   // navigator.geolocation.getCurrentPosition(success);
   //navigator.geolocation.watchPosition(success);
 
-  /*if (userSpeed == null) {
+  if (userSpeed == null) {
     userSpeed = 0.00005;
   }
   // if not it's a correct decimal number
 
-  console.log("Speed used :" + userSpeed);*/
+  console.log("Speed used :" + userSpeed);
 
-  percentage += 0.0005; //Speed of the tunnel
+  percentage += userSpeed; //Speed of the tunnel
   var p1 = path.getPointAt(percentage % 1);
   var p2 = path.getPointAt((percentage + 0.01) % 1);
   camera.position.set(p1.x, p1.y, p1.z);
