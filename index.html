@@ -199,8 +199,8 @@
         function getLocation() {
           setInterval(function(){
               // navigator.geolocation.getCurrentPosition(success);
-              // navigator.geolocation.watchPosition(showPosition);
-              navigator.geolocation.watchPosition(showPosition, {enableHighAccuracy:false, maximumAge:Infinity, timeout:60000});
+              navigator.geolocation.watchPosition(showPosition);
+              // navigator.geolocation.watchPosition(showPosition, {enableHighAccuracy:false, maximumAge:Infinity, timeout:60000});
           }, 500);
         }
         
