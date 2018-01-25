@@ -61,8 +61,20 @@
 	</head>
 	<body>
     <div class="top-header">
-      <button onclick="getLocation()">Get Location</button>
-      
+      <button onclick="getLocation()">Try It</button>
+      <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          setInterval(function(){
+              navigator.geolocation.getCurrentPosition(showPosition);
+          }, 500);
+        }
+
+        function showPosition(position) {
+            console.log("Speed: " + position.coords.speed);
+        }
+      </script> 
 
 <!--       <img src="img/back.png" alt="Back" height="26" width="25"> -->
 <!--       <img src="img/check.png" alt="Check" height="15" width="23">
@@ -199,6 +211,7 @@ scene.add(tube);
 var percentage = 0;
 var userSpeed = null;
 
+<<<<<<< HEAD
 function getLocation() {
   setInterval(function(){
       navigator.geolocation.watchPosition(
@@ -215,12 +228,20 @@ function getLocation() {
 function render() {
 if (userSpeed == null) {
     userSpeed = 0.000000005;
+=======
+function render() {
+  // navigator.geolocation.getCurrentPosition(success);
+  //navigator.geolocation.watchPosition(success);
+
+  /*if (userSpeed == null) {
+    userSpeed = 0.00005;
+>>>>>>> parent of 50e4fe3... Test whole project with interval
   }
   // if not it's a correct decimal number
 
-  console.log("Speed used :" + userSpeed);
+  console.log("Speed used :" + userSpeed);*/
 
-  percentage += userSpeed; //Speed of the tunnel
+  percentage += 0.0005; //Speed of the tunnel
   var p1 = path.getPointAt(percentage % 1);
   var p2 = path.getPointAt((percentage + 0.01) % 1);
   camera.position.set(p1.x, p1.y, p1.z);
