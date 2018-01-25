@@ -28,6 +28,18 @@
         padding-left:20px;
         padding-top:15px;
       }
+      .button {
+          background-color: #fafafa; /* Cream */
+          border: none;
+          color: #232629;
+          padding: 4px 28px;
+          text-align: center;
+          display: inline-block;
+          font-size: 16px;
+          font-family: "Caladea", serif;
+          font-weight: bold;
+          border-radius: 8px;
+      }
       .paragraph{
         font-size: 15px;
         font-family: "Caladea", serif;
@@ -61,7 +73,7 @@
   </head>
   <body>
     <div class="top-header">
-      <button onclick="getLocation()">Get Location</button>
+      <button class="button" onclick="getLocation()">Get Location</button>
       
 
 <!--       <img src="img/back.png" alt="Back" height="26" width="25"> -->
@@ -107,7 +119,7 @@
         });
         renderer.setSize(ww, wh);
         //Create an empty scene
-        var scene = new THREE.Scene(); // initialising the scene
+        var scene = new THREE.Scene(); // initialising the scene, setting the scene background
         scene.background = new THREE.Color( 0xfafafa );
         //Create a perpsective camera
         var camera = new THREE.PerspectiveCamera(45, ww / wh, 0.001, 1000);
