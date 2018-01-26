@@ -200,6 +200,9 @@
           setInterval(function(){
               // navigator.geolocation.getCurrentPosition(success);
               navigator.geolocation.watchPosition(showPosition);
+                <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+                <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+                <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
               // navigator.geolocation.watchPosition(showPosition, {enableHighAccuracy:false, maximumAge:Infinity, timeout:60000});
           }, 500);
         }
