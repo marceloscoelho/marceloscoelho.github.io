@@ -74,21 +74,6 @@
   <body>
     <div class="top-header">
       <button class="button" onclick="getLocation()">Get Location</button>
-        <script>
-        var x = document.getElementById("demo");
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else { 
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        function showPosition(position) {
-            x.innerHTML = "Speed: " + position.coords.speed;
-        }
-        </script>
     </div>
 
     <div class="title">
