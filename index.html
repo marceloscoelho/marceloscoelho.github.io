@@ -70,17 +70,25 @@
         margin-top: 5px;
       }
     </style>
-                <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-                <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-                <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
   </head>
   <body>
     <div class="top-header">
       <button class="button" onclick="getLocation()">Get Location</button>
-<!--       <img src="img/back.png" alt="Back" height="26" width="25">
-      <img src="img/check.png" alt="Check" height="15" width="23">
-      <img src="img/share.png" alt="Share" height="24" width="20">
-      <img src="img/config.png" alt="Config" height="25" width="25"> -->
+        <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Speed: " + position.coords.speed;
+        }
+        </script>
     </div>
 
     <div class="title">
