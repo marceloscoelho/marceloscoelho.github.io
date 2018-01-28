@@ -221,12 +221,11 @@
                 navigator.geolocation.getCurrentPosition(
                   function (position2) {
                     var speed = calculateSpeed(t1 / 1000, position1.coords.latitude, position1.coords.longitude, Date.now() / 1000, position2.coords.latitude, position2.coords.longitude);
-                      userSpeed = speed;
-                      speed = speed / 1000000;
-
                   }
               }
               navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
+                      userSpeed = speed;
+                      speed = speed / 1000000;
         
 
         function render() {
