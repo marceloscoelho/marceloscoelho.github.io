@@ -113,7 +113,7 @@
         });
         renderer.setSize(ww, wh);
         //Create an empty scene
-        var scene = new THREE.Scene(); // initialising the scene, setting the scene background
+        var scene = new THREE.Scene(); // initializing the scene, setting the scene background
         scene.background = new THREE.Color( 0xfafafa );
         //Create a perpsective camera
         var camera = new THREE.PerspectiveCamera(45, ww / wh, 0.001, 1000);
@@ -221,7 +221,7 @@
                 navigator.geolocation.getCurrentPosition(
                   function (position2) {
                     var speed = calculateSpeed(t1 / 1000, position1.coords.latitude, position1.coords.longitude, Date.now() / 1000, position2.coords.latitude, position2.coords.longitude);
-                  }
+                  });
               }
               navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
               
