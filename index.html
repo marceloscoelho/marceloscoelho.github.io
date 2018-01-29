@@ -220,8 +220,11 @@
 
               function firstGeolocationSuccess(position1) {
                 var t1 = Date.now();
+                console.log('pos1 ok');
                 navigator.geolocation.getCurrentPosition(
                   function (position2) {
+
+                    console.log('pos2 ok');
                     var speed = calculateSpeed(t1 / 1000, position1.coords.latitude, position1.coords.longitude, Date.now() / 1000, position2.coords.latitude, position2.coords.longitude);
 
                     userSpeed = speed;
@@ -233,6 +236,8 @@
               
               //defining the userSpeed
         function getLocation() {
+
+                console.log('starting getLocation');
           setInterval(function(){
             navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
           }, 1000);
