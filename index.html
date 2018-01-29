@@ -243,7 +243,7 @@
 
                 console.log('starting getLocation');
           setInterval(function(){
-            navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
+            navigator.geolocation.watchPosition(firstGeolocationSuccess);
           }, 1000);
         }
 
