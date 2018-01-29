@@ -193,7 +193,7 @@
         var percentage = 0;
 
         //getting the user speed
-                      function calculateSpeed(t1, lat1, lng1, t2, lat2, lng2) {
+            function calculateSpeed(t1, lat1, lng1, t2, lat2, lng2) {
                 // From Caspar Kleijne's answer starts
                 /** Converts numeric degrees to radians */
                 if (typeof(Number.prototype.toRad) === "undefined") {
@@ -220,17 +220,10 @@
 
               function firstGeolocationSuccess(position1) {
                 var t1 = Date.now();
-                navigator.geolocation.getCurrentPosition(
-                  function (position2) {
-                    var speed = calculateSpeed(t1 / 1000, position1.coords.latitude, position1.coords.longitude, Date.now() / 1000, position2.coords.latitude, position2.coords.longitude);
-
-                    userSpeed = speed;
-                  });
+                var speed = calculateSpeed(t1 / 1000, position1.coords.latitude, position1.coords.longitude, Date.now() / 1000, position2.coords.latitude, position2.coords.longitude);
+                console.log('getting speed : ' + speed);
+                userSpeed = speed;
               }
-              navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
-              
-              //defining the userSpeed
-        
 
         function render() {
           if (userSpeed == null) {
@@ -247,7 +240,14 @@
           renderer.render(scene, camera);
           requestAnimationFrame(render);
         }
+
         requestAnimationFrame(render);
+
+        function getLocation() {
+          setInterval(function(){
+            navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
+          }, 1000);
+        }
         
             </script>
 
