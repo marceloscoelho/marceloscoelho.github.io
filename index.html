@@ -221,6 +221,7 @@
               function firstGeolocationSuccess(position1) {
                 var t1 = Date.now();
                 console.log('pos1 ok');
+
                 navigator.geolocation.getCurrentPosition(
                   function (position2) {
 
@@ -229,6 +230,9 @@
 
                     userSpeed = speed;
                     console.log('Getting speed : ' + speed);
+                  },
+                  function (){
+                    console.log('Error pos2');
                   });
               }
 
