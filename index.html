@@ -223,7 +223,7 @@
                 console.log('pos1 ok');
                 console.log(position1.coords.latitude);
 
-                navigator.geolocation.getCurrentPosition(
+                /*navigator.geolocation.getCurrentPosition(
                   function (position2) {
 
                     console.log('pos2 ok');
@@ -234,18 +234,27 @@
                   },
                   function (){
                     console.log('Error pos2');
-                  });
+                  });*/
               }
 
               
               
               //defining the userSpeed
         function getLocation() {
+          var position1, positon2;
+          var isPosition1Set, isPosition2Set = false;
 
-          console.log('starting getLocation');
           setInterval(function(){
-            navigator.geolocation.watchPosition(firstGeolocationSuccess);
+            if (!isPosition1Set) {
+              navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
+            }
+
+            
           }, 1000);
+
+          /*
+          console.log('starting getLocation');*/
+          
         }
 
         function render() {
