@@ -229,7 +229,7 @@
           console.log('pos2 ok :' + position2.coords.latitude);
           pos2lat = position2.coords.latitude;
           pos2lon = position2.coords.longitude;
-          
+
               console.log(pos2lat);
               console.log(pos2lon);
           position2Coord = position2.coords;
@@ -259,9 +259,9 @@
               console.log(position1Coord.longitude);
               console.log(pos2lat);
               console.log(pos2lon);
-              console.log(positon2Coord.latitude);
-              console.log(positon2Coord.longitude);
-              var speed = calculateSpeed(t1 / 1000, position1Coord.latitude, position1Coord.longitude, Date.now() / 1000, positon2Coord.latitude, positon2Coord.longitude);
+              //console.log(positon2Coord.latitude);
+              //console.log(positon2Coord.longitude);
+              var speed = calculateSpeed(t1 / 1000, position1Coord.latitude, position1Coord.longitude, Date.now() / 1000, pos2lat, pos2lon);
 
               userSpeed = speed;
               console.log('Getting speed : ' + speed);
