@@ -258,8 +258,10 @@
               //console.log(pos2lon);
               var speed = calculateSpeed(t1 / 1000, position1Coord.latitude, position1Coord.longitude, Date.now() / 1000, pos2lat, pos2lon);
 
+              // ADJUST HERE
               userSpeed = speed / 1000000;
-              console.log('Getting speed : ' + speed);
+
+              console.log('Getting speed : ' + userSpeed);
             }
           }, 1000);
         }
