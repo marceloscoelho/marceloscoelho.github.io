@@ -249,6 +249,10 @@
 
             if (isPosition1Set && isPosition2Set) {
               console.log('BOTH');
+              console.log(position1Coord.latitude);
+              console.log(position1Coord.longitude);
+              console.log(positon2Coord.latitude);
+              console.log(positon2Coord.longitude);
               var speed = calculateSpeed(t1 / 1000, position1Coord.latitude, position1Coord.longitude, Date.now() / 1000, positon2Coord.latitude, positon2Coord.longitude);
 
               userSpeed = speed;
