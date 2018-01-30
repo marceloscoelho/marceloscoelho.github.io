@@ -218,43 +218,43 @@
                 return distance / t2 - t1;
               }
 
-              function firstGeolocationSuccess(position1) {
-                var t1 = Date.now();
-                console.log('pos1 ok');
-                console.log(position1.coords.latitude);
+        function firstGeolocationSuccess(position1) {
+          console.log('pos1 ok :' + position1.coords.latitude);
+          position1Coord = position1.coords;
+          isPosition1Set = true;
+          t1 = Date.now();
+        }
 
-                /*navigator.geolocation.getCurrentPosition(
-                  function (position2) {
+        function secondGeolocationSuccess(position2) {
+          console.log('pos2 ok :' + position2.coords.latitude);
+          position2Coord = position2.coords;
+          isPosition2Set = true;
+        }
+        
+        var position1Coord, positon2Coord;
+        var isPosition1Set, isPosition2Set = false;
+        var t1;
 
-                    console.log('pos2 ok');
-                    var speed = calculateSpeed(t1 / 1000, position1.coords.latitude, position1.coords.longitude, Date.now() / 1000, position2.coords.latitude, position2.coords.longitude);
-
-                    userSpeed = speed;
-                    console.log('Getting speed : ' + speed);
-                  },
-                  function (){
-                    console.log('Error pos2');
-                  });*/
-              }
-
-              
-              
-              //defining the userSpeed
         function getLocation() {
-          var position1, positon2;
-          var isPosition1Set, isPosition2Set = false;
+          console.log('Starting getLocation');
 
           setInterval(function(){
             if (!isPosition1Set) {
               navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
             }
 
-            
-          }, 1000);
+            if (isPosition1Set && !isPosition2Set) {
+              navigator.geolocation.getCurrentPosition(secondGeolocationSuccess);
+            }
 
-          /*
-          console.log('starting getLocation');*/
-          
+            if (isPosition1Set && isPosition2Set) {
+              console.log('BOTH');
+              var speed = calculateSpeed(t1 / 1000, position1Coord.latitude, position1Coord.longitude, Date.now() / 1000, positon2Coord.latitude, positon2Coord.longitude);
+
+              userSpeed = speed;
+              console.log('Getting speed : ' + speed);
+            }
+          }, 1000);
         }
 
         function render() {
