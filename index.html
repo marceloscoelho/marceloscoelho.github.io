@@ -244,11 +244,11 @@
 
           setInterval(function(){
             if (!isPosition1Set) {
-              navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
+              navigator.geolocation.watchPosition(firstGeolocationSuccess);
             }
 
             if (isPosition1Set && !isPosition2Set) {
-              navigator.geolocation.getCurrentPosition(secondGeolocationSuccess);
+              navigator.geolocation.watchPosition(secondGeolocationSuccess);
             }
 
             if (isPosition1Set && isPosition2Set) {
