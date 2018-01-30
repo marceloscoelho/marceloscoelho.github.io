@@ -258,7 +258,7 @@
               //console.log(pos2lon);
               var speed = calculateSpeed(t1 / 1000, position1Coord.latitude, position1Coord.longitude, Date.now() / 1000, pos2lat, pos2lon);
 
-              userSpeed = speed;
+              userSpeed = speed / 1000000;
               console.log('Getting speed : ' + speed);
             }
           }, 1000);
@@ -268,7 +268,7 @@
           if (userSpeed == null || userSpeed <= 0) {
             userSpeed = 0.00005;
           }
-          
+
           // if not it's a correct decimal number
           console.log("Speed used :" + userSpeed);
           percentage += userSpeed; //Speed of the tunnel
