@@ -229,14 +229,12 @@
           console.log('pos2 ok :' + position2.coords.latitude);
           pos2lat = position2.coords.latitude;
           pos2lon = position2.coords.longitude;
-
-              console.log(pos2lat);
-              console.log(pos2lon);
-          position2Coord = position2.coords;
+          //console.log(pos2lat);
+          //console.log(pos2lon);
           isPosition2Set = true;
         }
         
-        var position1Coord, positon2Coord;
+        var position1Coord;
         var pos2lat, pos2lon;
         var isPosition1Set, isPosition2Set = false;
         var t1;
@@ -254,13 +252,10 @@
             }
 
             if (isPosition1Set && isPosition2Set) {
-              console.log('BOTH');
-              console.log(position1Coord.latitude);
-              console.log(position1Coord.longitude);
-              console.log(pos2lat);
-              console.log(pos2lon);
-              //console.log(positon2Coord.latitude);
-              //console.log(positon2Coord.longitude);
+              //console.log(position1Coord.latitude);
+              //console.log(position1Coord.longitude);
+              //console.log(pos2lat);
+              //console.log(pos2lon);
               var speed = calculateSpeed(t1 / 1000, position1Coord.latitude, position1Coord.longitude, Date.now() / 1000, pos2lat, pos2lon);
 
               userSpeed = speed;
@@ -270,9 +265,10 @@
         }
 
         function render() {
-          if (userSpeed == null) {
+          if (userSpeed == null || userSpeed <= 0) {
             userSpeed = 0.00005;
           }
+          
           // if not it's a correct decimal number
           console.log("Speed used :" + userSpeed);
           percentage += userSpeed; //Speed of the tunnel
